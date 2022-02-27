@@ -1,0 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1 {
+  background-color: royalblue;
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    background-color: salmon;
+  }
+}

@@ -1,0 +1,393 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans HK", sans-serif;
+}
+body {
+  position: relative;
+  img.orange {
+    position: absolute;
+    top: -10vh;
+    right: 0;
+    z-index: -1;
+    width: 55vw;
+    height: 100%;
+  }
+}
+
+header {
+  nav {
+    width: 100%;
+    ul {
+      width: 70%;
+      display: flex;
+      list-style-type: none;
+      justify-content: space-around;
+      padding-top: 2rem;
+      li {
+        font-size: 1.75rem;
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+      li:hover {
+        background-color: rgb(235, 184, 168);
+      }
+      a:hover {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        padding: 0;
+      }
+    }
+  }
+}
+div.project {
+  flex-direction: column;
+  li {
+    float: left;
+    position: relative;
+    width: auto;
+
+    ul {
+      width: max-content;
+      flex-direction: column;
+      li {
+        border-bottom: 2px solid gray;
+      }
+    }
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+  }
+}
+#submenu {
+  width: auto;
+  left: 0;
+  opacity: 0;
+
+  position: absolute;
+  top: 35px;
+  visibility: hidden;
+  z-index: 1;
+}
+li:hover ul#submenu {
+  background-color: #eec5ad;
+  opacity: 1;
+  top: 40px; /* adjust this as per top nav padding top & bottom comes */
+  visibility: visible;
+}
+#submenu li {
+  float: none;
+  width: 100%;
+}
+
+#submenu a :hover {
+  color: rgb(255, 255, 255);
+}
+//tag
+.tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tags li {
+  float: left;
+}
+
+.tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: "";
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tag:hover {
+  background-color: crimson;
+  color: white;
+}
+
+.tag:hover::after {
+  border-left-color: crimson;
+}
+
+$colors: (
+  pulse: #ef6eae,
+);
+
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+// Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+//button
+button {
+  color: var(--color);
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
+
+code {
+  color: #e4cb58;
+  font: inherit;
+}
+// Animate the size, outside
+.pulse:hover,
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff, 0);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+
+  section.left {
+    padding: 2rem;
+    flex: 3 1 500px;
+    h1 {
+      font-size: 4rem;
+      color: #e08958;
+    }
+    p {
+      font-size: 1.5rem;
+      padding: 1rem 0rem;
+    }
+  }
+  section.right {
+    flex: 1 1 600px;
+    position: relative;
+    img.myPic {
+      border-radius: 50%;
+      width: 20vw;
+      height: 20vw;
+      position: absolute;
+      top: 58vh;
+      right: 25vw;
+      transform: translateY(-50%);
+    }
+  }
+  section.table {
+    flex: 3 1 500px;
+    padding: 2rem;
+    table {
+      border-collapse: collapse;
+      tr {
+        border-bottom: 2px solid gray;
+        transition: all 0.2s ease;
+        &:hover {
+          background-color: rgb(245, 217, 191);
+        }
+        td {
+          padding: 1rem;
+        }
+
+        img {
+          width: 3vw;
+          height: 4vw;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+  section.form {
+    flex: 1 1 600px;
+    form {
+      min-height: 70vh;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      padding: 1.5rem;
+      div {
+        margin: 1.5rem;
+        label {
+          font-size: 1.5rem;
+          margin-right: 1rem;
+        }
+        input,
+        textarea {
+          background-color: #e08958;
+          color: white;
+          font-size: 1.25rem;
+          padding: 0.5rem 0.25rem;
+          border: none;
+          width: 35vw;
+          width: 80%;
+        }
+        textarea {
+          vertical-align: top;
+        }
+      }
+      button {
+        align-self: center;
+        background-color: #e08958;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 0.75rem 1.5rem;
+        font-size: 2rem;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  div.line {
+    background-color: gray;
+    width: 3px;
+  }
+
+  section.contact {
+    flex: 1 1 500px;
+    display: flex;
+    align-items: center;
+    div.content {
+      margin-left: 2rem;
+      h2 {
+        margin: 1rem 0rem;
+      }
+    }
+  }
+}
+
+section.picture {
+  flex: 1 1 600px;
+  position: relative;
+
+  img {
+    width: 30vw;
+  }
+  div.orangeRect {
+    position: absolute;
+    background-color: #e08958;
+    width: 30vw;
+    height: 90vh;
+    top: 10vh;
+    right: 10vw;
+    z-index: -1;
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(212, 211, 211);
+  height: 40vh;
+  h1 {
+    padding: 1.5rem 0rem;
+  }
+  a {
+    padding: 1rem;
+  }
+}
+.active {
+  color: #e08958;
+}
+
+@media screen and (max-width: 1100px) {
+  .orange {
+    opacity: 0.5;
+  }
+  header {
+    nav {
+      padding-left: 2rem;
+      ul {
+        width: 100%;
+        flex-direction: column;
+        li {
+          padding: 1rem 0rem;
+          border-bottom: 2px solid gray;
+        }
+      }
+      div.project {
+        li {
+          width: 100vw;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    main {
+      section.right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img.myPic {
+          position: static;
+          transform: none;
+          width: 50vw;
+          height: 50vw;
+          margin: 1rem;
+        }
+      }
+      section.picture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 50vw;
+        }
+        div.orangeRect {
+          display: none;
+        }
+      }
+    }
+  }
+}
