@@ -63,10 +63,11 @@ div.project {
 div.project li {
   float: left;
   position: relative;
-  width: auto;
+  width: 100%;
 }
 
 div.project li ul {
+  padding: 0rem;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -440,13 +441,6 @@ footer a {
   header nav ul li {
     padding: 1rem 0rem;
     border-bottom: 2px solid gray;
-  }
-  header nav div.project li {
-    width: 100vw;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
   }
 }
 

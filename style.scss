@@ -48,9 +48,10 @@ div.project {
   li {
     float: left;
     position: relative;
-    width: auto;
+    width: 100%;
 
     ul {
+      padding: 0rem;
       width: max-content;
       flex-direction: column;
       li {
@@ -352,12 +353,6 @@ footer {
         li {
           padding: 1rem 0rem;
           border-bottom: 2px solid gray;
-        }
-      }
-      div.project {
-        li {
-          width: 100vw;
-          flex-direction: column;
         }
       }
     }
